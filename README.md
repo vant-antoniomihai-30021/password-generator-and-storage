@@ -10,6 +10,7 @@ This is going to be my first project and I am really happy to be working on it. 
 - HTML
 - CSS
 - JavaScript
+- PostgreSQL (for storing)
 
 # Objectives
 _My_ goal is to create my first project and to be able to manage and work on it (by improving it as much as possible).
