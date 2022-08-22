@@ -11,7 +11,7 @@
     <div id="container">
         <h2>My first password generator ever!</h2>
         <button id="add" onclick="httpPut('http://localhost:8080/api/v1/passwords/put')">Add password</button>
-        <p>(Adds a random password to the database)</p>
+        <p id="getTag">(Adds a random password to the database)</p>
         <br>
         <button id="delete" onclick="httpDelete('http://localhost:8080/api/v1/passwords/delete')">Delete</button>
         <input id="passwordId" type="text" style="width: 3%;">

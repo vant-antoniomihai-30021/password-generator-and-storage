@@ -25,9 +25,19 @@ function httpGet(url) {
        
 
    );}
+
+
   
 
 function httpPut(url) {
+    var pTag = document.getElementById("getTag");
+    pTag.style.color="aqua";
+    pTag.style.fontSize="22px";
+    pTag.style.transition="all 1.5s"
+    setTimeout( function(){ 
+        pTag.style.fontSize="1em";
+        pTag.style.color="white";
+    },2000);
     var xml = new XMLHttpRequest();
     xml.open("Put", url, false);
     xml.send(null);
