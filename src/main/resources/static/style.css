@@ -3,21 +3,20 @@ body {
     color: white;
     font-family: cursive;
     text-shadow: 1px 1px rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
 }
 
 button:hover {
     color: white;
-    border-color: rgb(255, 255, 255);
+    border-color: rgb(146, 255, 240);
     ;
 }
 
 #passwordId {
-
     font-size: 20px;
     padding-top: 5px;
     padding-right: 5px;
-   
- 
 }
 
 p {
@@ -40,18 +39,19 @@ h2 {
             rgb(255, 255, 255),
             rgb(0, 0, 0));
     border-image-slice: 1;
+    width: 73%;
 
 }
 
 #container {
     margin: auto;
-    width: 40%;
+    width: 890px;
+    height: auto;
+    
 }
 
 #response{
     font-size: 23px;
     background-color: rgb(75, 87, 87);
-    width: auto;
-    height: auto;
     margin-top:10%; 
 }

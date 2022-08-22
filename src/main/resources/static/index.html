@@ -8,6 +8,7 @@
 </head>
 
 <body id="body">
+    
     <div id="container">
         <h2>My first password generator ever!</h2>
         <button id="add" onclick="httpPut('http://localhost:8080/api/v1/passwords/put')">Add password</button>
@@ -15,17 +16,17 @@
         <br>
         <button id="delete" onclick="httpDelete('http://localhost:8080/api/v1/passwords/delete')">Delete</button>
         <input id="passwordId" type="text" style="width: 3%;">
-        <p>(Introduce the id for the password that you want to delete)</p>
+        <p id="deleteTag">(Introduce the id for the password that you want to delete)</p>
         <br>
         <button id="deleteAll" onclick="httpDeleteAll('http://localhost:8080/api/v1/passwords/delete-all')">Delete
             all</button>
-        <p>(Deletes all the passwords in the database)</p>
+        <p id="deleteAllTag">(Deletes all the passwords in the database)</p>
         <br>
         <button id="getAll" onclick="httpGet('http://localhost:8080/api/v1/passwords')">Get all passwords</button>
-        <p>(Shows all the passwords in the database)</p>
+        <p id="getAllTag">(Shows all the passwords in the database)</p>
         <br>
         <button id="clear">Clear</button>
-        <p>(Clears the screen)</p>
+        <p id="clearTag">(Clears the screen)</p>
         <div id="response">
         </div>
     </div>
