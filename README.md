@@ -11,3 +11,11 @@ This is going to be my first project and I am really happy to be working on it. 
 - CSS
 - JavaScript
 
+# Objectives
+_My_ goal is to create my first project and to be able to manage and work on it (by improving it as much as possible).
+The project's objectives are:
+1. Being able to generate and store strong passwords safely in a database.
+2. To secure the passwords by adding a login form.
+3. To make the user interaction a nice experience.
+
+
