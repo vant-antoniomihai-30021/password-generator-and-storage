@@ -1,0 +1,49 @@
+package com.example.passwordgenerator.password;
+
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="password_table")
+public class Password {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "password_generator")
+    @SequenceGenerator(name="password_generator",sequenceName = "password_generator",allocationSize = 1)
+    private Long id;
+
+    private final String password;
+    public static int counter=1;
+    private int indOfThisPassword;
+
+    public Password() {
+        String bigLetters= "QWERTYUIOPASDFGHJKLZXCVBNM";
+        String smallLetters= "qwertyuiopasdfghjklzxcvbnm";
+        String numbers= "1234567890";
+        String otherChars= "{}:!@#$%^&*();?";
+        StringBuilder sb = new StringBuilder();
+        int length = (int)(Math.random()*16+1);
+        while(length<16)
+            length = (int)(Math.random()*16+1);
+
+        for(int i =0;i<length/4;i++){
+            sb.append(bigLetters.charAt((int)(Math.random()*bigLetters.length())));
+            sb.append(smallLetters.charAt((int)(Math.random()*smallLetters.length())));
+            sb.append(numbers.charAt((int)(Math.random()*numbers.length())));
+            sb.append(otherChars.charAt((int)(Math.random()*otherChars.length())));
+        }
+        this.password = sb.toString();
+        indOfThisPassword =counter;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public int getIndOfThisPassword() {
+        return indOfThisPassword;
+    }
+
+    public void setIndOfThisPassword(int indOfThisPassword) {
+        this.indOfThisPassword = indOfThisPassword;
+    }
+}
