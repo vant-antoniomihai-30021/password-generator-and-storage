@@ -38,4 +38,7 @@ public class PasswordService {
     public void deleteAllPasswords(){
         passwordRepository.deleteAll();
     }
+    public boolean isEmpty(){
+        return passwordRepository.count() == 0;
+    }
 }

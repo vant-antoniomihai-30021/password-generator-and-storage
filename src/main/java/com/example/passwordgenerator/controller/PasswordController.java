@@ -33,5 +33,9 @@ public class PasswordController {
     public void deleteAllPassWords(){
         passwordService.deleteAllPasswords();
     }
+    @GetMapping("/check-if-empty")
+    public boolean isEmpty(){
+        return passwordService.isEmpty();
+    }
 
 }

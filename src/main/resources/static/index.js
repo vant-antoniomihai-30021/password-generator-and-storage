@@ -23,7 +23,15 @@ function httpGet(url) {
         getAllTag.style.color="white";
     },1000);
     document.getElementById("response").innerHTML = "";
-    fetch(url).then((response) => response.json()).then((date) => { console.log(date);
+    fetch(url+"/check-if-empty").then((data)=>data.json()).then((data)=>{
+        if(data === true){
+            var tag = document.createElement("p");
+            tag.innerHTML="There are no passwords in the database.";
+            document.getElementById("response").appendChild(tag);}
+        
+    })
+    
+    fetch(url).then((response) => response.json()).then((date) => { 
         for(var i =0;i<date.length;i++){
             
             var tag = document.createElement("p");
