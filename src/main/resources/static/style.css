@@ -32,6 +32,11 @@ button {
     color: white;
 }
 
+#passwordToAdd{
+    font-size: 21px;
+    padding-top: 5px;
+}
+
 h2 {
     font-size: 35px;
     border-bottom: 2px solid rgb(180, 174, 174);

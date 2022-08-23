@@ -11,7 +11,7 @@ public class Password {
     @SequenceGenerator(name="password_generator",sequenceName = "password_generator",allocationSize = 1)
     private Long id;
 
-    private final String password;
+    private String password;
     public static int counter=1;
     private int indOfThisPassword;
 
@@ -37,6 +37,10 @@ public class Password {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getIndOfThisPassword() {

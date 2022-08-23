@@ -1,4 +1,3 @@
-
 var clearBtn = document.getElementById("clear");
 clearBtn.onclick = function clear() {
     document.getElementById("response").innerHTML = "";
@@ -11,7 +10,6 @@ clearBtn.onclick = function clear() {
         clearTag.style.color="white";
     },1000);
 }
-
 
 function httpGet(url) {
     var getAllTag = document.getElementById("getAllTag");
@@ -27,13 +25,11 @@ function httpGet(url) {
         if(data === true){
             var tag = document.createElement("p");
             tag.innerHTML="There are no passwords in the database.";
-            document.getElementById("response").appendChild(tag);}
-        
+            document.getElementById("response").appendChild(tag);}     
     })
     
     fetch(url).then((response) => response.json()).then((date) => { 
-        for(var i =0;i<date.length;i++){
-            
+        for(var i =0;i<date.length;i++){         
             var tag = document.createElement("p");
             var text = date[i].password;
             tag.innerHTML = text;
@@ -43,15 +39,9 @@ function httpGet(url) {
             tag.style.color = "rgb(152, 256, 255)";
             document.getElementById("response").appendChild(ind);
             document.getElementById("response").appendChild(tag);
-            document.getElementById("response").appendChild(br);
-            
+            document.getElementById("response").appendChild(br); 
         }}
-       
-
    );}
-
-
-  
 
 function httpPut(url) {
     var pTag = document.getElementById("getTag");
@@ -66,7 +56,6 @@ function httpPut(url) {
     xml.open("Put", url, false);
     xml.send(null);
     return xml.responseText;
-
 }
 
 function httpDelete(url) {
@@ -82,7 +71,6 @@ function httpDelete(url) {
     var xml = new XMLHttpRequest();
     xml.open("Delete", url + id.value, false);
     xml.send(null);
-
 }
 
 function httpDeleteAll(url) {
@@ -98,7 +86,16 @@ function httpDeleteAll(url) {
     xml.open("Delete", url, false);
     xml.send(null);
     return xml.responseText;
-
 }
 
+function httpPutThisPassword(url){
+     var passwordToAdd = document.getElementById("passwordToAdd").value;
+     if(passwordToAdd!="" && /[a-zA-Z]/.test(passwordToAdd)){
+      var xml = new XMLHttpRequest();
+      xml.open("Put", url+passwordToAdd, false);
+      xml.send(null);
+      return xml.responseText;
+
+     } 
+}
 
