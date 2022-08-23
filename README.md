@@ -21,7 +21,7 @@ The project's objectives are:
 3. To make the user interaction a nice experience.
 4. Improve every time I find something that can be improved.
 
-#Improvements over time
+# Improvements over time
 * A little bit of the aspect (about border and colors)
 * More user-friendly environment (when you add or remove a password it would automatically show the change)
 * Added the method to be able to save your own password
