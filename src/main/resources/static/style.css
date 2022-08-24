@@ -7,7 +7,7 @@ body {
     justify-content: center;
 }
 
-button:hover {
+button:hover, #copyBtn:hover {
     color: white;
     border-color: rgb(146, 255, 240);
     ;
@@ -21,6 +21,15 @@ button:hover {
 
 p {
     display: inline;
+}
+
+#copyBtn{
+    font-size: 24px;
+    font-family: sans-serif;
+    border: 1px solid white;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    
 }
 
 button {
@@ -48,12 +57,23 @@ h2 {
 #container {
     margin: auto;
     width: 890px;
-    height: auto;
-    
+    padding-left: 11%;    
 }
 
 #response{
     font-size: 23px;
     background-color: rgb(75, 87, 87);
-    margin-top:10%; 
+    margin-top:2%; 
+    margin-left:12px;
+    padding-left:5px;
+}
+
+.mini-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+    margin: 0px;
+    
+    
 }

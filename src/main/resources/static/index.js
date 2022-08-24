@@ -11,8 +11,9 @@ clearBtn.onclick = function clear() {
     }, 1000);
 }
 
-
+var dateCopy;
 function httpGet(url, cal) {
+    
     if (cal == 1) {
         var getAllTag = document.getElementById("getAllTag");
         getAllTag.style.color = "rgb(196, 255, 240)";
@@ -32,20 +33,39 @@ function httpGet(url, cal) {
         }
     })
     fetch(url).then((response) => response.json()).then((date) => {
+        isTrue = true;
+        dateCopy = date;
         for (var i = 0; i < date.length; i++) {
             var tag = document.createElement("p");
+            var div = document.createElement("div");
+            var response = document.getElementById("response");
+            var copyBtn = document.createElement("button");
+            response.appendChild(div);
+            div.classList.add("mini-container");
+            copyBtn.setAttribute("id", "copyBtn");
+            copyBtn.innerHTML = "Copy";
+            copyBtn.classList.add("copyBtn" + i);
             var text = date[i].password;
             tag.innerHTML = text;
+            tag.classList.add("tagPw");
             var ind = document.createElement("p"); ind.style.display = "inline"; tag.style.display = "inline";
             ind.innerHTML = "Password with the number " + (date[i].indOfThisPassword) + " is: ";
-            var br = document.createElement("br");
             tag.style.color = "rgb(152, 256, 255)";
-            document.getElementById("response").appendChild(ind);
-            document.getElementById("response").appendChild(tag);
-            document.getElementById("response").appendChild(br);
+            div.appendChild(ind);
+            div.appendChild(tag);
+            div.appendChild(copyBtn);
         }
+        for(var j = 0; j < dateCopy.length; j++){
+            var btn = document.querySelector(".copyBtn"+j);
+            btn.onclick = function(v) {
+                navigator.clipboard.writeText(v.path[1].querySelector(".tagPw").innerHTML);
+            }
+        }
+
     }
     );
+    
+    
 }
 
 function httpPut(url) {
@@ -101,7 +121,7 @@ function httpDeleteAll(url) {
 
 function httpPutThisPassword(url) {
     var passwordToAdd = document.getElementById("passwordToAdd").value;
-    if (passwordToAdd != "" && /[a-zA-Z]/.test(passwordToAdd)) {
+    if (passwordToAdd != "" || /[a-zA-Z]/.test(passwordToAdd)) {
         var xml = new XMLHttpRequest();
         xml.open("Put", url + passwordToAdd, false);
         xml.send(null);
