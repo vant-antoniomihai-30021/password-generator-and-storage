@@ -3,7 +3,7 @@
 # About
 This is going to be my first project and I am really happy to be working on it. As the title suggests this application is generating a random password and it stores it in a database.
 
-![This image shows the main aspect of the application](src/main/resources/images/general_image.png "The aspect")<br>
+![This image shows the main aspect of the application](src/main/resources/images/general_aspect.png "The aspect")<br>
 (I still have to decide how to design the application, so I am sorry if this looks bad at this moment)
 <br>
 
@@ -27,7 +27,6 @@ The project's objectives are:
 # Improvements over time
 * A little bit of the aspect (about border and colors)
 * More user-friendly environment (when you add or remove a password it would automatically show the change)
-* Added the method to be able to save your own password
 * Added some tests for the REST API
 * Added the button that copies the password to clipboard
 
