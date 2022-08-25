@@ -119,14 +119,4 @@ function httpDeleteAll(url) {
 
 }
 
-// function httpPutThisPassword(url) {
-//     var passwordToAdd = document.getElementById("passwordToAdd").value;
-//     if (passwordToAdd != "" || /[a-zA-Z]/.test(passwordToAdd)) {
-//         var xml = new XMLHttpRequest();
-//         xml.open("Put", url + passwordToAdd, false);
-//         xml.send(null);
-//         httpGet('http://localhost:8080/api/v1/passwords', 0);
-//         return xml.responseText;
-//     }
-// }
 
