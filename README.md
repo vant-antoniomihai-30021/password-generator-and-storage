@@ -3,7 +3,7 @@
 # About
 This is going to be my first project and I am really happy to be working on it. As the title suggests this application is generating a random password and it stores it in a database.
 
-![This image shows the main aspect of the application](src/main/resources/images/general_aspect.png "The aspect")<br>
+![This image shows the main aspect of the application](src/main/resources/images/general_image.png "The aspect")<br>
 (I still have to decide how to design the application, so I am sorry if this looks bad at this moment)
 <br>
 
