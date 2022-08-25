@@ -25,10 +25,10 @@ public class PasswordService {
         Password.counter++;
         passwordRepository.save(password);
     }
-    public void saveThisPassword(Password password){
-        Password.counter++;
-        passwordRepository.save(password);
-    }
+//    public void saveThisPassword(Password password){
+//        Password.counter++;
+//        passwordRepository.save(password);
+//    }
 
 
     public void deletePasswordBasedOnId(Long id) {
