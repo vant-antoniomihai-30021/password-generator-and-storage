@@ -37,5 +37,11 @@ public class PasswordController {
     public boolean isEmpty(){
         return passwordService.isEmpty();
     }
-//
+    @PutMapping("/save-this-password{passwordToSave}")
+    public void saveThisPassword(@PathVariable("passwordToSave") String password){
+        Password passwordToSave=new Password();
+       passwordToSave.setPassword(password);
+       passwordService.saveThisPassword(passwordToSave);
+    }
+
 }

@@ -33,6 +33,12 @@ public class PasswordService {
               passwordRepository.findById(id+1).get().setIndOfThisPassword(Password.counter-1);
         }
     }
+
+    public void saveThisPassword(Password password){
+       Password.counter++;
+        passwordRepository.save(password);
+    }
+
     public void deleteAllPasswords(){
         passwordRepository.deleteAll();
     }

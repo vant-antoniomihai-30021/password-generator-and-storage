@@ -25,6 +25,9 @@
         <button id="getAll" onclick="httpGet('http://localhost:8080/api/v1/passwords',1)">Get all passwords</button>
         <p id="getAllTag">(Shows all the passwords in the database)</p>
         <br>
+        <button onclick="httpPutThisPassword('http://localhost:8080/api/v1/passwords/save-this-password')">Add this password</button>  
+        <input id="passwordToAdd" type="password">
+        <br> 
         <button id="clear">Clear</button>
         <p id="clearTag">(Clears the screen)</p>
         <div id="response">
