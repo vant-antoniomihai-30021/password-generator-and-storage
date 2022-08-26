@@ -4,14 +4,11 @@ import com.example.passwordgenerator.password.Password;
 import com.example.passwordgenerator.repository.PasswordRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.BDDMockito.willDoNothing;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -34,7 +31,7 @@ class PasswordServiceTest {
     }
 
     @Test
-    public void getAllPasswords(){
+    public void canGetAllPasswords(){
         //when
         passwordServiceTest.getAllPasswords();
         //then
@@ -42,7 +39,7 @@ class PasswordServiceTest {
     }
 
     @Test
-    public void addNewPassword(){
+    public void canAddNewPassword(){
         //given
         Password password = new Password();
         //when
@@ -56,29 +53,24 @@ class PasswordServiceTest {
     }
 
     @Test
-    @Disabled
-    public void deletePasswordWithTheId(){
+    public void canDeletePasswordWithTheId(){
         //given
-
-        willDoNothing().given(passwordRepositoryTest).deleteById(1L);
-
+        Password password = new Password();
+        passwordRepositoryTest.save(password);
+        passwordRepositoryTest.save(password);
         //when
-        passwordServiceTest.deletePasswordBasedOnId(1L);
-
+        passwordRepositoryTest.deleteById(2L);
         //then
-        verify(passwordRepositoryTest).deleteById(1L);
-
+        verify(passwordRepositoryTest).deleteById(2L);
     }
 
     @Test
-    public void deleteAllPasswords(){
-
+    public void canDeleteAllPasswords(){
         passwordServiceTest.deleteAllPasswords();
         verify(passwordRepositoryTest).deleteAll();
     }
 
     @Test
-    @Disabled
     public void isEmpty(){
         passwordServiceTest.generateNewPassword();
         passwordServiceTest.saveThisPassword(new Password());

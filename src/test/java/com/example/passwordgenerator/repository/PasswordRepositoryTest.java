@@ -5,8 +5,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 class PasswordRepositoryTest {
@@ -44,5 +46,43 @@ class PasswordRepositoryTest {
         boolean exists = passwordRepositoryTest.findAll().contains(password);
         //then
         assertFalse(exists);
+    }
+    @Test
+    public void shouldDeleteAllThePasswords(){
+        //given
+        Password password = new Password();
+        passwordRepositoryTest.save(password);
+        password = new Password();
+        passwordRepositoryTest.save(password);
+        password = new Password();
+        passwordRepositoryTest.save(password);
+        password = new Password();
+        passwordRepositoryTest.save(password);
+        //when
+        passwordRepositoryTest.deleteAll();
+        boolean isEmpty = passwordRepositoryTest.findAll().isEmpty();
+        //then
+        assertTrue(isEmpty);
+    }
+    @Test
+    public void shouldGetAllThePasswords(){
+        //given
+        List<Password> passwordList = new ArrayList<>();
+        Password password = new Password();
+        passwordRepositoryTest.save(password);
+        passwordList.add(password);
+        password = new Password();
+        passwordRepositoryTest.save(password);
+        passwordList.add(password);
+        password = new Password();
+        passwordRepositoryTest.save(password);
+        passwordList.add(password);
+        password = new Password();
+        passwordRepositoryTest.save(password);
+        passwordList.add(password);
+        //when
+        List<Password> currentPasswordList = passwordRepositoryTest.findAll();
+        //then
+        assertEquals(passwordList,currentPasswordList);
     }
 }
