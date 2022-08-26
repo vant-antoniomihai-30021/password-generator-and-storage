@@ -29,9 +29,9 @@ The project's objectives are:
 * More user-friendly environment (when you add or remove a password it would automatically show the change)
 * Added the method to be able to add your own password
 * Added some tests for the REST API
- - for the password class
- - for the repository
- - for the service layer
+  - for the password class
+  - for the repository
+  - for the service layer
 * Added the button that copies the password to clipboard
 
 # Why web application
