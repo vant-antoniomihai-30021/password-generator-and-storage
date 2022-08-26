@@ -27,6 +27,7 @@ The project's objectives are:
 # Improvements over time
 * A little bit of the aspect (about border and colors)
 * More user-friendly environment (when you add or remove a password it would automatically show the change)
+* Added the method to be able to add your own password
 * Added some tests for the REST API
 * Added the button that copies the password to clipboard
 
