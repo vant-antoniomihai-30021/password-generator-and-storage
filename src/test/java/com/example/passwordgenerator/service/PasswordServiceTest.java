@@ -6,13 +6,15 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.*;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.BDDMockito.willDoNothing;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class PasswordServiceTest {
 
     private PasswordService passwordServiceTest;
@@ -56,20 +58,32 @@ class PasswordServiceTest {
     @Test
     @Disabled
     public void deletePasswordWithTheId(){
+        //given
 
+        willDoNothing().given(passwordRepositoryTest).deleteById(1L);
+
+        //when
+        passwordServiceTest.deletePasswordBasedOnId(1L);
+
+        //then
+        verify(passwordRepositoryTest).deleteById(1L);
 
     }
 
     @Test
-    @Disabled
     public void deleteAllPasswords(){
 
+        passwordServiceTest.deleteAllPasswords();
+        verify(passwordRepositoryTest).deleteAll();
     }
 
     @Test
     @Disabled
     public void isEmpty(){
-
+        passwordServiceTest.generateNewPassword();
+        passwordServiceTest.saveThisPassword(new Password());
+        passwordServiceTest.deleteAllPasswords();
+        assertTrue(passwordServiceTest.isEmpty());
     }
 
 }
