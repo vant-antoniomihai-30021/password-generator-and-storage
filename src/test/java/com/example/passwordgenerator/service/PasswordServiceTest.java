@@ -13,7 +13,6 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class PasswordServiceTest {
-
     private PasswordService passwordServiceTest;
     @Mock
     private PasswordRepository passwordRepositoryTest;
