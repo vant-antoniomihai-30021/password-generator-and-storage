@@ -32,6 +32,7 @@ The project's objectives are:
   - for the password class
   - for the repository
   - for the service layer
+  - for the controller
 * Added the button that copies the password to clipboard
 
 # Why web application
