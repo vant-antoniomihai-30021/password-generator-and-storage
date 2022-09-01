@@ -1,7 +1,6 @@
 package com.example.passwordgenerator.controller;
 
 import com.example.passwordgenerator.password.Password;
-import com.example.passwordgenerator.repository.PasswordRepository;
 import com.example.passwordgenerator.service.PasswordService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,15 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-
-
 
 @ExtendWith(MockitoExtension.class)
 @WebMvcTest(PasswordController.class)
@@ -28,8 +25,6 @@ class PasswordControllerTest {
     private MockMvc mockMvc;
     @MockBean
     private PasswordService passwordServiceTest;
-    @MockBean
-    private PasswordRepository passwordRepositoryTest;
 
     @Test
     public void shouldNotBeNullMockMvc(){
@@ -46,13 +41,27 @@ class PasswordControllerTest {
     }
 
     @Test
-    public void shouldAddANewPassword()throws Exception{
-        Password passwordToAdd = new Password();
-        Mockito.doNothing().when(passwordServiceTest).saveThisPassword(passwordToAdd);
+    public void shouldAddANewPassword() throws Exception{
+        Mockito.doNothing().when(passwordServiceTest).generateNewPassword();
         mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/passwords/put")).andExpect(status().isOk());
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/passwords")).andExpect(status().isOk()).andReturn();
     }
 
+    @Test
+    public void shouldDeleteThePasswordWithTheId() throws Exception{
+        Mockito.doNothing().when(passwordServiceTest).deletePasswordBasedOnId(1L);
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/passwords/delete1")).andExpect(status().isOk());
+    }
 
+    @Test
+    public void shouldDeleteAllThePasswords() throws Exception{
+        Mockito.doNothing().when(passwordServiceTest).deleteAllPasswords();
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/passwords/delete-all")).andExpect(status().isOk());
+    }
 
+    @Test
+    public void shouldBeEmpty() throws Exception{
+        Boolean isEmpty=true;
+        Mockito.when(passwordServiceTest.isEmpty()).thenReturn(isEmpty);
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/passwords/check-if-empty")).andExpect(status().isOk()).andExpect(content().string(isEmpty.toString()));
+    }
 }

@@ -1,10 +1,10 @@
 package com.example.passwordgenerator.repository;
 
 import com.example.passwordgenerator.password.Password;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +22,7 @@ class PasswordRepositoryTest {
         Password password = new Password();
         passwordRepositoryTest.save(password);
         //when
-        boolean exists = passwordRepositoryTest.existsById(1L);
+        boolean exists = passwordRepositoryTest.existsById(7L);
         //then
        assertTrue(exists);
     }
