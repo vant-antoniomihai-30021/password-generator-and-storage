@@ -5,7 +5,7 @@ This is going to be my first project and I am really happy to be working on it. 
 
 ![This image shows the main aspect of the application](src/main/resources/images/main_image.png "The aspect")<br>
 (I still have to decide how to design the application, so I am sorry if this looks bad at this moment)
-![This image shows the main aspect of the login page | width = 100px](src/main/resources/images/login_image.png "Login image")<br>
+![This image shows the main aspect of the login page | height = 100px](src/main/resources/images/login_image.png "Login image")<br>
 (Sorry for the general aspect of this one as well)
 <br>
 
