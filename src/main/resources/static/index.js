@@ -65,18 +65,25 @@ function httpGet(url, cal) {
                 navigator.clipboard.writeText(v.path[1].querySelector(".tagPw").innerHTML);
                 v.path[0].style.borderColor = "purple";
                 v.path[0].style.transition = "2s all ease";
+                let isPurple = true;
                 setTimeout(function () {
                     v.path[0].style.borderColor = "white";
                     v.path[0].onmouseover = function (e){
                         v.path[0].style.borderColor = "rgb(146, 255, 240)";
                         v.path[0].style.transition = "all 0.3s";
+                    }    
+                    v.path[0].onmouseleave = function (){
+                        if(!isPurple)
+                            {
+                                v.path[0].style.borderColor = "white";
+                                isPurple = false;
+                            }
+                        if(v.path[0].style.borderColor == "rgb(146, 255, 240)" && v.path[0].style.borderColor!="purple"){
+                            v.path[0].style.borderColor = "white";
+                        }
                     }
-                    v.path[0].onmouseleave = function (e){
-                        v.path[0].style.borderColor = "white";
-                        v.path[0].style.transition = "all 0.3s";
-                    }
-
                 }, 1000);
+                
 
             }
         }
@@ -137,7 +144,7 @@ function httpDeleteAll(url) {
 
 function httpPutThisPassword(url) {
         var passwordToAdd = document.getElementById("passwordToAdd").value;
-        if (passwordToAdd != "" || /[a-zA-Z]/.test(passwordToAdd)) {
+        if ((passwordToAdd != "" || /[a-zA-Z]/.test(passwordToAdd)) && passwordToAdd.length>8) {
             var xml = new XMLHttpRequest();
             xml.open("Put", url + passwordToAdd, false);
             xml.send(null);
