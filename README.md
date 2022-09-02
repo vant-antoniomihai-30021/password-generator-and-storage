@@ -34,6 +34,7 @@ The project's objectives are:
   - for the service layer
   - for the controller
 * Added the button that copies the password to clipboard
+  - with a color transition when it is clicked
 
 # Why web application
 I actually thought about a GUI program, but in the past I've worked a little bit with web development (only front-end) and I really enjoyed it. The problem was that I had no experience with back-end and no idea where to start. Then at university I was introduced to Java. I liked every aspect about it and I learned it quite fast (since I already knew C and C++ to some degree). That was when I realized that I want to know more about Java. After learning other aspects that I didn't know about, I've decided to choose the path _web application_ with Spring Boot (since I already knew some HTLM, CSS and JavaScript) and here we are.
