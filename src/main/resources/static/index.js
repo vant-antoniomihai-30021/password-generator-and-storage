@@ -59,6 +59,12 @@ function httpGet(url, cal) {
             var btn = document.querySelector(".copyBtn"+j);
             btn.onclick = function(v) {
                 navigator.clipboard.writeText(v.path[1].querySelector(".tagPw").innerHTML);
+                v.path[0].style.borderColor = "purple";
+                v.path[0].style.transition = "2s all ease";
+                setTimeout(function () {
+                    v.path[0].style.borderColor = "white";
+                }, 1000);
+
             }
         }
 
