@@ -42,7 +42,7 @@ The <b>login</b> form is not completed yet, but that is going to be the first th
  - The usage of each button is pretty straightforward since it has an explanation on the screen
  - The user <b>can add one of his / hers own password</b> by writing it in the specific box and clicking on the <b>”Add this password”</b> button
  - There are the delete options: by id (there will be a number in front of each password which represents its id) and by deleting all the passwords
- - When the passwords are shown, there are buttons in the right side of each button that if clicked will <b>copy</b> that password to clipboard
+ - When the passwords are shown, there are buttons in the right side of each one that if clicked will <b>copy</b> that password to clipboard
 
 # Why web application
 I actually thought about a GUI program, but in the past I've worked a little bit with web development (only front-end) and I really enjoyed it. The problem was that I had no experience with back-end and no idea where to start. Then at university I was introduced to Java. I liked every aspect about it and I learned it quite fast (since I already knew C and C++ to some degree). That was when I realized that I want to know more about Java. After learning other aspects that I didn't know about, I've decided to choose the path _web application_ with Spring Boot (since I already knew some HTLM, CSS and JavaScript) and here we are.
