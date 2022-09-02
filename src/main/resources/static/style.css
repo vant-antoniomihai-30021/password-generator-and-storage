@@ -10,6 +10,7 @@ body {
 button:hover, #copyBtn:hover {
     color: white;
     border-color: rgb(146, 255, 240);
+    transition: all 0.3s;
 }
 
 #passwordId {

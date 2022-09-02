@@ -36,7 +36,10 @@ function httpGet(url, cal) {
         isTrue = true;
         dateCopy = date;
         for (var i = 0; i < date.length; i++) {
-            var tag = document.createElement("p");
+            var tag = document.createElement("p"); //
+            //tag.setAttribute("type", "password"); //
+            //tag.disabled = true; //
+            //tag.style.fontSize = "15px"; 
             var div = document.createElement("div");
             var response = document.getElementById("response");
             var copyBtn = document.createElement("button");
@@ -47,6 +50,7 @@ function httpGet(url, cal) {
             copyBtn.classList.add("copyBtn" + i);
             var text = date[i].password;
             tag.innerHTML = text;
+            //tag.value = text; 
             tag.classList.add("tagPw");
             var ind = document.createElement("p"); ind.style.display = "inline"; tag.style.display = "inline";
             ind.innerHTML = "Password with the number " + (date[i].indOfThisPassword) + " is: ";
@@ -63,6 +67,15 @@ function httpGet(url, cal) {
                 v.path[0].style.transition = "2s all ease";
                 setTimeout(function () {
                     v.path[0].style.borderColor = "white";
+                    v.path[0].onmouseover = function (e){
+                        v.path[0].style.borderColor = "rgb(146, 255, 240)";
+                        v.path[0].style.transition = "all 0.3s";
+                    }
+                    v.path[0].onmouseleave = function (e){
+                        v.path[0].style.borderColor = "white";
+                        v.path[0].style.transition = "all 0.3s";
+                    }
+
                 }, 1000);
 
             }
@@ -70,8 +83,6 @@ function httpGet(url, cal) {
 
     }
     );
-    
-    
 }
 
 function httpPut(url) {
@@ -122,7 +133,6 @@ function httpDeleteAll(url) {
     xml.send(null);
     httpGet('http://localhost:8080/api/v1/passwords', 0);
     return xml.responseText;
-
 }
 
 function httpPutThisPassword(url) {
