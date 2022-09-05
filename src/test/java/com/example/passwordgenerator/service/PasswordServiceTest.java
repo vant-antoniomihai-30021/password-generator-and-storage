@@ -77,4 +77,11 @@ class PasswordServiceTest {
         assertTrue(passwordServiceTest.isEmpty());
     }
 
+    @Test
+    public void canCheckIfExistsById(){
+        passwordServiceTest.generateNewPassword();
+        passwordServiceTest.checkIfExistsById(1L);
+        verify(passwordRepositoryTest).existsById(1L);
+    }
+
 }

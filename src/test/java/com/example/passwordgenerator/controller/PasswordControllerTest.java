@@ -64,4 +64,12 @@ class PasswordControllerTest {
         Mockito.when(passwordServiceTest.isEmpty()).thenReturn(isEmpty);
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/passwords/check-if-empty")).andExpect(status().isOk()).andExpect(content().string(isEmpty.toString()));
     }
+
+    @Test
+    public void shouldFindByThisId() throws  Exception{
+        Boolean exists = true;
+        Mockito.doNothing().when(passwordServiceTest).generateNewPassword();
+        Mockito.when(passwordServiceTest.checkIfExistsById(1L)).thenReturn(exists);
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/passwords/exists1")).andExpect(status().isOk()).andExpect(content().string(exists.toString()));
+    }
 }
