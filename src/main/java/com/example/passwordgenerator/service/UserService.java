@@ -15,11 +15,11 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    public boolean canLogin(String name, String password){
-        return userRepository.existsByUsername(name) && userRepository.existsByPassword(password);
+    public boolean canLogin(String name, String password, String email){
+        return userRepository.existsByUsername(name) && userRepository.existsByPassword(password) && userRepository.existsByEmail(email);
     }
-    public void saveUser(String name, String password){
-        userRepository.save(new User(name,password));
+    public void saveUser(String name, String password, String email){
+        userRepository.save(new User(name,password,email));
     }
     public List<User> getAllUsers(){
         return userRepository.findAll();

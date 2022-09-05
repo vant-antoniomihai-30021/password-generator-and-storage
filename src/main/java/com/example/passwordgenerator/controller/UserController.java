@@ -24,13 +24,13 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/save-user-{username}-{password}")
-    public void saveUser(@PathVariable("username")String name, @PathVariable("password")String password){
-        userService.saveUser(name,password);
+    @PostMapping("/save-user-{username}-{password}-{email}")
+    public void saveUser(@PathVariable("username")String name, @PathVariable("password")String password,@PathVariable("email")String email){
+        userService.saveUser(name,password,email);
     }
 
-    @GetMapping("exists-{username}-{password}")
-    public boolean canLogin(@PathVariable("username")String name,@PathVariable("password")String password){
-        return userService.canLogin(name,password);
+    @GetMapping("exists-{username}-{password}-{email}")
+    public boolean canLogin(@PathVariable("username")String name,@PathVariable("password")String password,@PathVariable("email")String email){
+        return userService.canLogin(name,password,email);
     }
 }

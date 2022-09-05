@@ -26,6 +26,11 @@ h1 {
 
 }
 
+#email{
+    padding: 0;
+    margin-left: 80px;
+}
+
 input {
     font-size: 41px;
 }
