@@ -13,23 +13,24 @@
     <div class="container">
         <h1>Login to access the password generator</h1>
         
-        <form>
+        
             <div class="form-container">
                 <div class="form-second-container">
                     <label for="username">Username</label>
-                    <input type="text" placeholder="Enter your username" required>
+                    <input id="name" type="text" placeholder="Enter your username" required>
                     <br>
                     <label class="pw-label" for="password">Password</label>
-                    <input type="password" placeholder="Enter your password" required>
+                    <input id="password" type="password" placeholder="Enter your password" required>
                 </div>
 
             </div>
-            <button class="login-btn">Login</button>
-        </form>
+            <button onclick="register()" class="register-btn">Register</button>
+            <button onclick="login()" class="login-btn">Login</button>
+        
     </div>
 
 
-
+    <script src = "login.js"></script>
 </body>
 
 </html>
