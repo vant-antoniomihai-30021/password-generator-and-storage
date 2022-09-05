@@ -11,9 +11,21 @@ clearBtn.onclick = function clear() {
     }, 1000);
 }
 
+window.onload = function () {
+    fetch("http://localhost:8080/api/v1/passwords" + "/check-if-empty").then((data) => data.json()).then((data) => {
+        if (data === true) {
+            var tag = document.createElement("p");
+            tag.innerHTML = "There are no passwords in the database.";
+            document.getElementById("response").appendChild(tag);
+        }
+        else
+            httpGet("http://localhost:8080/api/v1/passwords", 0);
+    })
+};
+
 var dateCopy;
 function httpGet(url, cal) {
-    
+
     if (cal == 1) {
         var getAllTag = document.getElementById("getAllTag");
         getAllTag.style.color = "rgb(196, 255, 240)";
@@ -59,31 +71,30 @@ function httpGet(url, cal) {
             div.appendChild(tag);
             div.appendChild(copyBtn);
         }
-        for(var j = 0; j < dateCopy.length; j++){
-            var btn = document.querySelector(".copyBtn"+j);
-            btn.onclick = function(v) {
+        for (var j = 0; j < dateCopy.length; j++) {
+            var btn = document.querySelector(".copyBtn" + j);
+            btn.onclick = function (v) {
                 navigator.clipboard.writeText(v.path[1].querySelector(".tagPw").innerHTML);
                 v.path[0].style.borderColor = "purple";
                 v.path[0].style.transition = "2s all ease";
                 let isPurple = true;
                 setTimeout(function () {
                     v.path[0].style.borderColor = "white";
-                    v.path[0].onmouseover = function (e){
+                    v.path[0].onmouseover = function (e) {
                         v.path[0].style.borderColor = "rgb(146, 255, 240)";
                         v.path[0].style.transition = "all 0.3s";
-                    }    
-                    v.path[0].onmouseleave = function (){
-                        if(!isPurple)
-                            {
-                                v.path[0].style.borderColor = "white";
-                                isPurple = false;
-                            }
-                        if(v.path[0].style.borderColor == "rgb(146, 255, 240)" && v.path[0].style.borderColor!="purple"){
+                    }
+                    v.path[0].onmouseleave = function () {
+                        if (!isPurple) {
+                            v.path[0].style.borderColor = "white";
+                            isPurple = false;
+                        }
+                        if (v.path[0].style.borderColor == "rgb(146, 255, 240)" && v.path[0].style.borderColor != "purple") {
                             v.path[0].style.borderColor = "white";
                         }
                     }
                 }, 1000);
-                
+
 
             }
         }
@@ -110,21 +121,43 @@ function httpPut(url) {
 
 function httpDelete(url) {
     var id = document.getElementById("passwordId");
-    if (id.value != "") {
-        var deleteTag = document.getElementById("deleteTag");
-        deleteTag.style.color = "rgb(196, 255, 240)";
+    var deleteTag = document.getElementById("deleteTag");
+    if(id.value==" " || id.value==""){
+        deleteTag.style.color = "red";
         deleteTag.style.fontSize = "22px";
         deleteTag.style.transition = "all 1s"
         setTimeout(function () {
             deleteTag.style.fontSize = "1em";
             deleteTag.style.color = "white";
         }, 1000);
-        var xml = new XMLHttpRequest();
-        xml.open("Delete", url + id.value, false);
-        xml.send(null);
-        httpGet('http://localhost:8080/api/v1/passwords', 0);
     }
-}
+    else{
+        fetch("http://localhost:8080/api/v1/passwords/exists" + id.value).then((data) => data.json()).then((data) => {
+            if (data === true) {
+                deleteTag.style.color = "rgb(196, 255, 240)";
+                deleteTag.style.fontSize = "22px";
+                deleteTag.style.transition = "all 1s"
+                setTimeout(function () {
+                    deleteTag.style.fontSize = "1em";
+                    deleteTag.style.color = "white";
+                }, 1000);
+                var xml = new XMLHttpRequest();
+                xml.open("Delete", url + id.value, false);
+                xml.send(null);
+                httpGet('http://localhost:8080/api/v1/passwords', 0);
+            }
+            else{
+                deleteTag.style.color = "red";
+                deleteTag.style.fontSize = "22px";
+                deleteTag.style.transition = "all 1s"
+                setTimeout(function () {
+                    deleteTag.style.fontSize = "1em";
+                    deleteTag.style.color = "white";
+                }, 1000);
+            }
+            })
+
+}}
 
 function httpDeleteAll(url) {
     var deleteAllTag = document.getElementById("deleteAllTag");
@@ -143,13 +176,29 @@ function httpDeleteAll(url) {
 }
 
 function httpPutThisPassword(url) {
-        var passwordToAdd = document.getElementById("passwordToAdd").value;
-        if ((passwordToAdd != "" || /[a-zA-Z]/.test(passwordToAdd)) && passwordToAdd.length>8) {
-            var xml = new XMLHttpRequest();
-            xml.open("Put", url + passwordToAdd, false);
-            xml.send(null);
-            httpGet('http://localhost:8080/api/v1/passwords', 0);
-            return xml.responseText;
-        }
+    var passwordToAdd = document.getElementById("passwordToAdd").value;
+    if ((passwordToAdd != "" || /[a-zA-Z]/.test(passwordToAdd)) && passwordToAdd.length > 8) {
+        pwToAdd.style.color = "rgb(196, 255, 240)";
+        pwToAdd.style.fontSize = "22px";
+        pwToAdd.style.transition = "all 1s"
+        setTimeout(function () {
+            pwToAdd.style.fontSize = "1em";
+            pwToAdd.style.color = "white";
+        }, 1000);
+        var xml = new XMLHttpRequest();
+        xml.open("Put", url + passwordToAdd, false);
+        xml.send(null);
+        httpGet('http://localhost:8080/api/v1/passwords', 0);
+        return xml.responseText;
     }
+    else{
+        pwToAdd.style.color = "red";
+        pwToAdd.style.fontSize = "22px";
+        pwToAdd.style.transition = "all 1s"
+        setTimeout(function () {
+            pwToAdd.style.fontSize = "1em";
+            pwToAdd.style.color = "white";
+        }, 1000);
+    }
+}
 

@@ -44,4 +44,9 @@ public class PasswordController {
        passwordService.saveThisPassword(passwordToSave);
     }
 
+    @GetMapping("/exists{passwordId}")
+    public boolean checkIfThisIdExists(@PathVariable("passwordId")Long id){
+        return passwordService.checkIfExistsById(id);
+    }
+
 }

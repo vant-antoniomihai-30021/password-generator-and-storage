@@ -45,4 +45,8 @@ public class PasswordService {
     public boolean isEmpty(){
         return passwordRepository.count() == 0;
     }
+
+    public boolean checkIfExistsById(Long id) {
+        return passwordRepository.existsById(id);
+    }
 }
