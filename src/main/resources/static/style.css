@@ -21,6 +21,7 @@ button:hover, #copyBtn:hover {
 
 p {
     display: inline;
+    overflow: hidden;
 }
 
 #copyBtn{
@@ -75,3 +76,63 @@ h2 {
     padding: 0px;
     margin: 0px;
 }
+
+@media  screen and (max-width:414px) {
+   button{
+    font-size: 20px;
+    padding: 0;
+   }
+   p{
+    font-size: 17px;
+   }
+   h2{
+    font-size: 20px;
+   }
+   #passwordToAdd{
+    font-size: 12px;
+    padding-top: 0;
+   }
+   #passwordId{
+    font-size: 10px;
+   }
+}
+@media  screen and (max-width:569px) {
+    p{
+        font-size: 15px;
+       }
+       .tagPw{
+       padding-top: 0;
+       margin-bottom: 10px;
+       font-size: 18px;
+       }
+}
+@media  screen and (width:820px) {
+    p{
+        font-size: 14px;
+       }
+}
+@media  screen and (width:912px) {
+    body{
+        font-size: 21px;
+       }
+}
+@media  screen and (width:540px) {
+    p{
+        font-size: 14px;
+       }
+}
+
+@media  screen and (max-width:572px) {
+    p{
+        font-size: 15px;
+        transition:color 0.5s;
+       }
+}
+
+@media  screen and (max-width:852px) {
+    p{
+        font-size: 15px;
+        transition:color 0.5s;
+       }
+}
+
