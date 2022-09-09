@@ -3,6 +3,7 @@ package com.example.passwordgenerator.controller;
 import com.example.passwordgenerator.password.Password;
 import com.example.passwordgenerator.service.PasswordService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,11 @@ public class PasswordController {
     public List<Password> getAllPasswords(){
         return passwordService.getAllPasswords();
     }
+    @RequestMapping("/login.html")
+    public String login() {
+        return "login.html";
+    }
+
     @PutMapping("/put")
     public void generateNewPassword(){
         passwordService.generateNewPassword();

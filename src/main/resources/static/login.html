@@ -12,7 +12,6 @@
 <body>
     <div class="container">
         <h1>Login to access the password generator</h1>
-        <p th:if="${loginError}" class="error">Wrong user or password</p>
         <form th:action="@{/login.html}" method="post">
             <div class="form-container">
                 <div class="form-second-container">
