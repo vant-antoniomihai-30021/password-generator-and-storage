@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -12,24 +12,24 @@
 <body>
     <div class="container">
         <h1>Login to access the password generator</h1>
-        
-        
+        <p th:if="${loginError}" class="error">Wrong user or password</p>
+        <form th:action="@{/login.html}" method="post">
             <div class="form-container">
                 <div class="form-second-container">
-                    <label for="username">Username</label>
-                    <input id="name" type="text" placeholder="Enter your username" required>
+                    <label for="name">Username</label>
+                    <input id="name" type="text" name="username" placeholder="Enter your username" required>
                     <br>
-                    <label for="email">Email</label>
+                    <!-- <label for="email">Email</label>
                     <input id="email" type="email" placeholder="Enter your email" required>
-                    <br>
+                    <br> -->
                     <label class="pw-label" for="password">Password</label>
-                    <input id="password" type="password" placeholder="Enter your password" required>
+                    <input id="password" type="password" name="password" placeholder="Enter your password" required>
                 </div>
 
             </div>
-            <button onclick="register()" class="register-btn">Register</button>
-            <button onclick="login()" class="login-btn">Login</button>
-        
+            <button class="register-btn">Register</button>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
     </div>
 
 
