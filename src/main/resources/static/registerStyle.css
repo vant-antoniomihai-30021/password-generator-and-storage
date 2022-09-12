@@ -36,7 +36,7 @@ input {
 }
 
 .form-second-container {
-    margin-top: 30%;
+    margin-top: 17%;
 }
 
 .pw-label {
@@ -63,8 +63,8 @@ input {
 .register-btn {
     font-size: 40px;
     border-radius: 10%;
-    margin-left: 63%;
     border-style: solid;
+    margin-left: 63%;
     border-color: rgb(49, 49, 49);
     background-color: rgb(85, 80, 81);
     color: rgb(255, 255, 255);
