@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="www.thymeleaf.org">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>Login to access the password generator</h1>
-        <form method="post">
+        <form action="http://localhost:8080/login.html" method="post">
             <div class="form-container">
                 <div class="form-second-container">
                     <label for="name">Username</label>
@@ -29,11 +29,11 @@
             <button type="submit" class="login-btn">Login</button>
             <button class="register-btn"><a href="/register.html">Register</a></button>
         </form>
-       
+
     </div>
 
 
-    <script src = "login.js"></script>
+    <script src="login.js"></script>
 </body>
 
 </html>

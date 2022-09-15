@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="www.thymeleaf.org" ></html>
+
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,25 +11,29 @@
 <body>
     <div class="container">
         <h1>Register to access the password generator</h1>
-        <form th:action="@{register}" method="post">
+        <form action="" th:action="@{/save}" th:object="${user}" method="post">
             <div class="form-container">
                 <div class="form-second-container">
                     <label for="name">Username</label>
-                    <input id="name" type="text" name="username" placeholder="Enter your username" >
+                    <input id="name" type="text" th:field="*{username}" name="username" placeholder="Enter your username" required>
                     <br>
                     <label for="email">Email</label>
-                    <input id="email" type="email"  placeholder="Enter your email">
+                    <input id="email" type="email" th:field="*{email}"  placeholder="Enter your email" required>
                     <br> 
                     <label class="pw-label" for="password">Password</label>
-                    <input id="password" type="password" name="password" placeholder="Enter your password">
+                    <input id="password" type="password" th:field="*{password}"  name="password"  placeholder="Enter your password" required>
                 </div>
-
+                <button type="submit" class="register-btn">Register</button>
+                <button class="login-btn"><a href="/login.html">Login</a></button>
             </div>
-            
         </form>
-        <button type="submit" class="register-btn">Register</button>
-        <button class="login-btn"><a href="/login.html">Login</a></button>
+            
+        
+
+        
         
     </div>
+
+    <script src = "register.js"></script>
 </body>
 </html>

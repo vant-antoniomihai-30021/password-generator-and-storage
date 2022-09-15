@@ -2,6 +2,7 @@ package com.example.passwordgenerator.controller;
 
 import com.example.passwordgenerator.password.Password;
 import com.example.passwordgenerator.service.PasswordService;
+import com.example.passwordgenerator.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,31 +19,33 @@ public class PasswordController {
     public PasswordController(PasswordService passwordService) {
         this.passwordService = passwordService;
     }
+
+
     @GetMapping
     public List<Password> getAllPasswords(){
         return passwordService.getAllPasswords();
-    }
-    @RequestMapping("/login.html")
-    public String login() {
-        return "login.html";
     }
 
     @PutMapping("/put")
     public void generateNewPassword(){
         passwordService.generateNewPassword();
     }
+
     @DeleteMapping("/delete{passwordId}")
     public void deletePasswordBasedOnId(@PathVariable("passwordId") Long id){
         passwordService.deletePasswordBasedOnId(id);
     }
+
     @DeleteMapping("/delete-all")
     public void deleteAllPassWords(){
         passwordService.deleteAllPasswords();
     }
+
     @GetMapping("/check-if-empty")
     public boolean isEmpty(){
         return passwordService.isEmpty();
     }
+
     @PutMapping("/save-this-password{passwordToSave}")
     public void saveThisPassword(@PathVariable("passwordToSave") String password){
         Password passwordToSave=new Password();
