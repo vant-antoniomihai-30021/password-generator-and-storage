@@ -46,6 +46,7 @@ input {
 .login-btn {
     font-size: 40px;
     margin-top: 7%;
+   margin-left: 55%;
     border-radius: 10%;
     border-style: solid;
     border-color: rgb(49, 49, 49);
@@ -63,8 +64,8 @@ input {
 .register-btn {
     font-size: 40px;
     border-radius: 10%;
-    margin-left: 63%;
     border-style: solid;
+
     border-color: rgb(49, 49, 49);
     background-color: rgb(85, 80, 81);
     color: rgb(255, 255, 255);

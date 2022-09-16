@@ -47,6 +47,7 @@ input {
     font-size: 40px;
     margin-top: 7%;
     border-radius: 10%;
+    margin-left: 55%;
     border-style: solid;
     border-color: rgb(49, 49, 49);
     background-color: rgb(85, 80, 81);
@@ -64,7 +65,6 @@ input {
     font-size: 40px;
     border-radius: 10%;
     border-style: solid;
-    margin-left: 63%;
     border-color: rgb(49, 49, 49);
     background-color: rgb(85, 80, 81);
     color: rgb(255, 255, 255);
