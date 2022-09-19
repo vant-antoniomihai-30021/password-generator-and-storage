@@ -1,7 +1,9 @@
 package com.example.passwordgenerator.user;
+import com.example.passwordgenerator.password.Password;
+
 import javax.persistence.*;
-
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -15,6 +17,10 @@ public class User{
     private String username;
     private String password;
     private String email;
+
+    @OneToMany
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    private List<Password> passwordList = new ArrayList<>();
 
     public String getUsername() {
         return username;
@@ -50,5 +56,11 @@ public class User{
                 '}';
     }
 
+    public List<Password> getPasswordList() {
+        return passwordList;
+    }
 
+    public void setPasswordList(List<Password> passwordList) {
+        this.passwordList = passwordList;
+    }
 }

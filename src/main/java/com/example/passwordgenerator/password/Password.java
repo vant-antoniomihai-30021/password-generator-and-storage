@@ -1,6 +1,8 @@
 package com.example.passwordgenerator.password;
 
 
+import com.example.passwordgenerator.user.User;
+
 import javax.persistence.*;
 
 
