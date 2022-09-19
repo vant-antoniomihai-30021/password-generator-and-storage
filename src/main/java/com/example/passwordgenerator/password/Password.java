@@ -3,6 +3,7 @@ package com.example.passwordgenerator.password;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name="password_table")
 public class Password {

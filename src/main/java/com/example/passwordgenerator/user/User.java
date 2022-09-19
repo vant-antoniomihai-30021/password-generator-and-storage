@@ -2,13 +2,15 @@ package com.example.passwordgenerator.user;
 import javax.persistence.*;
 
 
+
+
 @Entity
-@Table(name = "users_table")
+@Table(name = "user_table")
 public class User{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "password_generator")
-    @SequenceGenerator(name="password_generator",sequenceName = "password_generator",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_generator")
+    @SequenceGenerator(name="user_generator",sequenceName = "user_generator",allocationSize = 1)
     private Long id;
     private String username;
     private String password;
@@ -47,4 +49,6 @@ public class User{
                 ", email='" + email + '\'' +
                 '}';
     }
+
+
 }

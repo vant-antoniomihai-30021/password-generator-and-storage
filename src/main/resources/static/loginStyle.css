@@ -16,6 +16,7 @@ h1 {
     height: 700px;
     width: 50%;
     margin: auto;
+
 }
 
 .form-container {
@@ -23,6 +24,7 @@ h1 {
     padding-top: 5px;
     text-align: center;
     padding: 10px;
+
 
 }
 
@@ -33,10 +35,11 @@ h1 {
 
 input {
     font-size: 41px;
+    overflow: hidden;
 }
 
 .form-second-container {
-    margin-top: 30%;
+    margin-top: 28%;
 }
 
 .pw-label {

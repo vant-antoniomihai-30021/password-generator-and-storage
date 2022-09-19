@@ -22,6 +22,7 @@ public class UserController {
     @PostMapping("/save")
     public ModelAndView save(@ModelAttribute User user, Model model){
         model.addAttribute("user",user);
+        System.out.println("User with the username "+ user.getUsername() + " was saved.");
         userService.saveUser(user);
         return new ModelAndView("login");
     }
