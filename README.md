@@ -36,6 +36,7 @@ The project's objectives are:
 * Added the button that copies the password to clipboard
   - with a color transition when it is clicked
 * Made the page to be more responsive
+* Added a register page, a login page, so the user can now authenticate
 
 # How the application works
 The <b>login</b> form is not completed yet, but that is going to be the first thing that the user will see. If the user doesn't have an account he will be able to click on a link that will send him / her to a <b>register</b> form. After an account is created and the login process is done, the user will be able to access the <b>password generator and storage</b> application. The design of it is quite simple, since this is my first project, but as I said before I will try to improve as much as I can. There are some buttons on the screen and in the right side of each button there is an explanation about what it does. I will add a message that will show if there are no passwords in the database, so the user has a general idea about how it works.
