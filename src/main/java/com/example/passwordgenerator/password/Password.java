@@ -4,6 +4,7 @@ package com.example.passwordgenerator.password;
 import com.example.passwordgenerator.user.User;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 
 
 @Entity
@@ -15,6 +16,7 @@ public class Password {
     private Long id;
 
     private String password;
+    private Integer user_id;
     public static int counter=1;
     private int indOfThisPassword;
 
@@ -56,5 +58,13 @@ public class Password {
 
     public void setIndOfThisPassword(int indOfThisPassword) {
         this.indOfThisPassword = indOfThisPassword;
+    }
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 }

@@ -9,9 +9,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 
 @RestController
 @CrossOrigin(origins = "http://127.0.0.1:5500")
@@ -20,8 +20,8 @@ public class PasswordController {
     private final PasswordService passwordService;
     @Autowired
     private UserService userService;
+    ArrayList<User> list = new ArrayList<>();
 
-    private Map<User,Boolean> map = new HashMap<>();
 
     @Autowired
     public PasswordController(PasswordService passwordService) {
@@ -36,8 +36,13 @@ public class PasswordController {
     @PutMapping("/put")
     public void generateNewPassword(){passwordService.generateNewPassword();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if(!list.contains(userService.findByUsername(authentication.getName()))){
+//            System.out.println("it doesn't contain "+userService.findByUsername(authentication.getName()));
+//            list.add(userService.findByUsername(authentication.getName()));}
+//        System.out.println(list.size()); => ADD A FOR INSTEAD OF IF BECAUSE IT DOESN'T WORK, IT SAYS THAT IT DOESN'T CONTAIN EVEN IF IT DOES
+
         userService.findByUsername(authentication.getName()).setPasswordList(passwordService.getAllPasswords());
-        userService.saveUser(userService.findByUsername(authentication.getName()));
+
     }
 
     @DeleteMapping("/delete{passwordId}")
