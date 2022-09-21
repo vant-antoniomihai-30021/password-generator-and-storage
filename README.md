@@ -4,8 +4,8 @@
 This is going to be my first project and I am really happy to be working on it. As the title suggests this application is generating a random password and it stores it in a database.
 
 ![This image shows the main aspect of the application](src/main/resources/images/main.png "The aspect")<br>
-<b>I still have to decide how to design the application, so I am sorry if this looks bad at this moment.
-Also, there are 3 separate pages, but I needed an image with all of them.</b>
+<b>(I still have to decide how to design the application, so I am sorry if this looks bad at this moment.
+Also, there are 3 separate pages, but I needed an image with all of them. To justify the space left on the login page, I want to add a key there.)</b>
 
 # Built with 
 - Java Spring Boot
